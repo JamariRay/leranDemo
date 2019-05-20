@@ -10,6 +10,7 @@ import com.example.demo.mapper.StudentMapper;
 import lombok.AllArgsConstructor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -31,14 +32,15 @@ public class Tests {
     }
 
     @Test
-    @Transactional(rollbackFor = Exception.class)
+    //@Transactional(rollbackFor = Exception.class)
     public void t()  {
 
         studentMapper.insert(5, "huahua");
         t2();
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    //@Transactional(rollbackFor = Exception.class)
+    @Test
     public void t2() throws RuntimeException{
             studentMapper.insert(6, "lili");
             t3();
@@ -46,14 +48,19 @@ public class Tests {
     }
    @Transactional(rollbackFor = Exception.class)
     public void t3() throws RuntimeException{
-            studentMapper.insert(7, "haha");
+        studentMapper.insert(7, "haha");
+        // 数据库增删改要不要判断返回row
+       // 嵌套事务怎么处理 service的方法 调用了一个非
+       /**
+        *
+        */
 
     }
+
+
     @Transactional(rollbackFor = Exception.class)
-    public void t4() {
-
+    public void t4() throws RuntimeException{
             studentMapper.insert(8, null);
-
     }
 
 
