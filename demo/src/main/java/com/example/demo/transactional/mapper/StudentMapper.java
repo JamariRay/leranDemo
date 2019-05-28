@@ -1,21 +1,24 @@
-package com.example.demo.mapper;/**
- * @author JasonZeng
- * @E-mail: 1103022627@qq.com
- * @DESCRIPTION:
- * @since 2019/5/16 12:27
- */
+package com.example.demo.transactional.mapper;
 
-import com.example.demo.Person;
-import com.example.demo.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
  * @author tuxiaolei
- * @create 2019/5/16
+ * @create 2019/5/28
  */
 @Mapper
 public interface StudentMapper {
-
+    /**
+     * 新增
+     * @param id
+     * @param name
+     */
     void insert(@Param("id")Integer id, @Param("name")String name);
+
+    /**
+     *  删除
+     * @param id
+     */
+    void delete(@Param("id") Integer id);
 }

@@ -1,7 +1,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper.StudentMapper">
+<mapper namespace="com.example.demo.transactional.mapper.StudentMapper">
 
     <insert id="insert" >
         insert into student (id,name) values (#{id},#{name});
     </insert>
+    <delete id="delete">
+        DELETE FROM student where id = #{id}
+    </delete>
 </mapper>

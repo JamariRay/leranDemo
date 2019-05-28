@@ -1,12 +1,7 @@
-package com.example.demo;/**
- * @author JasonZeng
- * @E-mail: 1103022627@qq.com
- * @DESCRIPTION:
- * @since 2019/5/16 12:29
- */
+package com.example.demo;
 
-import com.example.demo.mapper.PersonMapper;
-import com.example.demo.mapper.StudentMapper;
+import com.example.demo.transactional.mapper.PersonMapper;
+import com.example.demo.transactional.mapper.StudentMapper;
 import lombok.AllArgsConstructor;
 
 /**
