@@ -1,21 +1,13 @@
 package com.example.demo.transactional.service.impl;
 
-import com.example.demo.Person;
-import com.example.demo.Student;
-import com.example.demo.transactional.MyException;
-import com.example.demo.transactional.mapper.PersonMapper;
 import com.example.demo.transactional.mapper.StudentMapper;
 import com.example.demo.transactional.service.PersonService;
 import com.example.demo.transactional.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.awt.*;
 
 /**
  * @author tuxiaolei

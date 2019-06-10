@@ -5,6 +5,9 @@ package com.example.demo;/**
  * @since 2019/5/20 17:24
  */
 
+import com.example.demo.security.entity.User;
+import com.example.demo.security.entity.UserSon;
+import com.example.demo.transactional.entity.Student;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -20,7 +23,7 @@ import java.util.Map;
 public class BigDecimalTest {
     @Test
     public void t(){
-        Map<Integer,Student> map = new HashMap<>();
+        Map<Integer, Student> map = new HashMap<>();
         int size = map.size();
         System.out.println(size);
         BigDecimal zero = BigDecimal.ZERO;
@@ -40,6 +43,27 @@ public class BigDecimalTest {
         list.add(2);
         list.add(1,1);
         System.out.println(list.toString());
+
+    }
+    @Test
+    public void t2(){
+        User user = new User();
+        BigDecimal amt = user.getAmt();
+        System.out.println(amt);
+        amt = BigDecimal.ZERO;
+        System.out.println(user.toString());
+    }
+    @Test
+    public void t3(){
+        UserSon user = new UserSon();
+        user.setId(1);
+        user.setAmt(BigDecimal.valueOf(100L));
+        t4(user);
+    }
+
+    private void t4(User user){
+        System.out.println(user.getAmt());
+        System.out.println(user.toString());
     }
 
 }
