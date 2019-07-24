@@ -11,6 +11,7 @@ import com.example.demo.transactional.entity.Student;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,5 +66,48 @@ public class BigDecimalTest {
         System.out.println(user.getAmt());
         System.out.println(user.toString());
     }
+    @Test
+    public void t5(){
+
+        BigDecimal money = new BigDecimal(-500.6);
+        if (new BigDecimal(money.intValue()).compareTo(money)!=0) {
+          money = money.setScale(1,BigDecimal.ROUND_HALF_UP);
+        }
+        System.out.println(money);
+    }
+    @Test
+    public void t6(){
+        BigDecimal a = new BigDecimal(20020.45);
+        BigDecimal b = new BigDecimal(129456.45);
+        BigDecimal c = new BigDecimal(59459);
+        BigDecimal d = new BigDecimal(10007);
+        BigDecimal d1 = new BigDecimal(25935);
+        BigDecimal d2 = new BigDecimal(14055);
+        BigDecimal e =a.divide(b,2, RoundingMode.HALF_UP);
+        BigDecimal f =c.divide(b,2, RoundingMode.HALF_UP);
+        BigDecimal g =d.divide(b,2, RoundingMode.HALF_UP);
+        BigDecimal g1 =d1.divide(b,2, RoundingMode.HALF_UP);
+        BigDecimal g2 =d2.divide(b,2, RoundingMode.HALF_UP);
+        BigDecimal temp =BigDecimal.ZERO;
+        temp=temp.add(e);
+        temp=temp.add(f);
+        temp=temp.add(g);
+        temp=temp.add(g1);
+        temp=temp.add(g2);
+        System.out.println(e);
+        System.out.println(f);
+        System.out.println(g);
+        System.out.println(g1);
+        System.out.println(g2);
+        System.out.println(temp);
+    }
+
+    @Test
+    public void test9(){
+        BigDecimal a = new BigDecimal(20020.00);
+        BigDecimal b = new BigDecimal(129456.00);
+        System.out.println(a.add(b));
+    }
+
 
 }
